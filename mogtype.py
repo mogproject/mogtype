@@ -123,7 +123,7 @@ class MogTypeStatus(object):
     def miss(self):
         return min(999, self.num_failed)
 
-    def accurancy(self):
+    def accuracy(self):
         total = self.num_success + self.num_failed
         return 100.0 * self.num_success / total if total else 0.0
 
@@ -137,7 +137,7 @@ class MogTypeView(object):
         self.stdscr.addstr(0, 0, 'No:')
         self.stdscr.hline(1, 0, '=', 80)
         self.stdscr.addstr(0, 54, 'Miss: ')
-        self.stdscr.addstr(0, 64, 'Accurancy:---.-%')
+        self.stdscr.addstr(0, 65, 'Accuracy:---.-%')
         self.stdscr.addstr(4, 0, '+' + '-' * 78 + '+')
         self.stdscr.addstr(5, 0, '|')
         self.stdscr.addstr(6, 0, '+' + '-' * 78 + '+')
@@ -161,7 +161,7 @@ class MogTypeView(object):
 
     def print_status(self, status):
         self.stdscr.addstr(0, 59, '%3d' % status.miss())
-        self.stdscr.addstr(0, 74, ('%.1f' % status.accurancy()).rjust(5))
+        self.stdscr.addstr(0, 74, ('%.1f' % status.accuracy()).rjust(5))
 
     def clear_mistake(self):
         self.stdscr.move(8, 0)
