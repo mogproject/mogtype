@@ -15,7 +15,7 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 """
-mogtype - The Simplest Typing Training
+mogtype - The Simplest Typing Training Tool
 
 CLI-based typing training tool for Japanese Kana typing.
 """
@@ -123,7 +123,7 @@ class MogTypeStatus(object):
     def miss(self):
         return min(999, self.num_failed)
 
-    def accurate(self):
+    def accurancy(self):
         total = self.num_success + self.num_failed
         return 100.0 * self.num_success / total if total else 0.0
 
@@ -136,8 +136,8 @@ class MogTypeView(object):
     def print_constant(self):
         self.stdscr.addstr(0, 0, 'No:')
         self.stdscr.hline(1, 0, '=', 80)
-        self.stdscr.addstr(0, 55, 'Miss: ')
-        self.stdscr.addstr(0, 65, 'Accurate:---.-%')
+        self.stdscr.addstr(0, 54, 'Miss: ')
+        self.stdscr.addstr(0, 64, 'Accurancy:---.-%')
         self.stdscr.addstr(4, 0, '+' + '-' * 78 + '+')
         self.stdscr.addstr(5, 0, '|')
         self.stdscr.addstr(6, 0, '+' + '-' * 78 + '+')
@@ -160,8 +160,8 @@ class MogTypeView(object):
         self.stdscr.addstr(8, 0, 'Oops! You typed: %s' % ch)
 
     def print_status(self, status):
-        self.stdscr.addstr(0, 60, '%3d' % status.miss())
-        self.stdscr.addstr(0, 74, ('%.1f' % status.accurate()).rjust(5))
+        self.stdscr.addstr(0, 59, '%3d' % status.miss())
+        self.stdscr.addstr(0, 74, ('%.1f' % status.accurancy()).rjust(5))
 
     def clear_mistake(self):
         self.stdscr.move(8, 0)
