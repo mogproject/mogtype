@@ -34,9 +34,8 @@ PROGRAM_NAME = 'mogtype'
 PROGRAM_VERSION = '0.0.1'
 
 # Default settings.
-SCRIPT_DIR = os.path.dirname(__file__)
-SCRIPT_BASE_NAME = os.path.basename(__file__)
-DEFAULT_DB_FILE = SCRIPT_DIR + '/mogtype.txt'
+BASE_DIR = lambda x: os.path.join(os.path.dirname(__file__), x)
+DEFAULT_DB_FILE = BASE_DIR('mogtype.txt')
 DEFAULT_MAX_COUNT = 8
 
 
