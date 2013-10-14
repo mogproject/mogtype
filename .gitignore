@@ -43,6 +43,9 @@ htmlcov/
 # Eclipse files
 .settings/
 
+# IntelliJ IDEA files
+.idea/
+
 # Logs
 *.log*
 
